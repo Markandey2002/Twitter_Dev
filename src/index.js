@@ -16,11 +16,7 @@ app.listen(3000, async()=>{
     // });
     // const tweets = await Tweet.find({userEmail : 'abc@d'})
     const tweetRepo = new TweetRepository();
-    const tweet = await tweetRepo.create({content : 'tweet with a comment schema'});
-    console.log(tweet);
-    const comment = await Comment.create({content: 'new comment'});
-    tweet.comments.push(comment);
-    await tweet.save();
-    console.log(tweet);
+    const tweet = await tweetRepo.getAll(0, 4)
+    console.log(tweet[0].contentWithEmail);
 });
    
